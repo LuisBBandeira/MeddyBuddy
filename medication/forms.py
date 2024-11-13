@@ -1,7 +1,8 @@
+from mongoengine import Document
 from django import forms
 from .models import Medication
 
-class FormAddMedication(forms.ModelForm):
+class FormAddMedication(Document):
     class Meta:
         model = Medication
         fields = ['name', 'dosage', 'instructions', 'user']
@@ -17,7 +18,7 @@ class FormAddMedication(forms.ModelForm):
         kwargs['request'] = self.request
         return kwargs
 
-class FormEditMedication(forms.ModelForm):
+class FormEditMedication(Document):
     """
     FormEditMedication is a ModelForm for editing Medication instances.
 
